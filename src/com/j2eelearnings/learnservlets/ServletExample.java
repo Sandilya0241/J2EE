@@ -3,7 +3,7 @@ package com.j2eelearnings.learnservlets;
 import javax.servlet.*;
 import java.io.*;
 
-public class HelloServlet implements Servlet{
+public class ServletExample implements Servlet{
 	ServletConfig config = null;
 	@Override
 	public void destroy() {

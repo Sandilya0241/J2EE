@@ -12,11 +12,34 @@
   
 	<servlet>
   		<servlet-name>FirstServlet</servlet-name>
-  		<servlet-class>com.j2eelearnings.learnservlets.HelloServlet</servlet-class>
+  		<servlet-class>com.j2eelearnings.learnservlets.ServletExample</servlet-class>
   	</servlet>
   
+	<servlet>
+  		<servlet-name>SLC</servlet-name>
+  		<servlet-class>com.j2eelearnings.learnservlets.ServletLifeCycleExample</servlet-class>
+  		<load-on-startup>1</load-on-startup>
+  	</servlet>
+	
+	<servlet>
+  		<servlet-name>GenericServletName</servlet-name>
+  		<servlet-class>com.j2eelearnings.learnservlets.GenericServletExample</servlet-class>
+  	</servlet>
+	
+	
 	<servlet-mapping>
 		<servlet-name>FirstServlet</servlet-name>
   		<url-pattern>/Hello</url-pattern>
 	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>SLC</servlet-name>
+  		<url-pattern>/HelpText</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>GenericServletName</servlet-name>
+  		<url-pattern>/GenericServletExample</url-pattern>
+	</servlet-mapping>
+	
 </web-app>

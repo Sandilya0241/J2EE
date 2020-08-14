@@ -188,3 +188,43 @@ If loadOn start is set for a specified servlet, servletcontainer would create ob
 
 All servlet implementations should be as "public", else it will not be useful.
 
+Methods of servlet:
+
+public void init(ServletConfig config) {
+	String a = config.getInitParam("A");	// aabbcc
+}
+
+// user task will be performed
+/*
+
+input html form 
+Name:<input type="text" name="p1"><br>
+Address:<input type="text" name="p2"><br>
+Email:<input type="text" name="p3"><br>
+
+
+*/
+public void service(ServletRequest req, ServletResponse resp) throws ServletException, IOException {
+	String name = req.getParameter("p1");
+	String address = req.getParameter("p2");
+	String email = req.getParameter("p3");
+	//Do operation required like JDBC insertion and send output using PrintWriter
+}
+
+
+Note:
+Init method will be executed by ServletContainer one time and it happens on first request.
+Service method will be executed for each users request once (Executes as many times users fire this request.).
+Destroy - Cleanup operations. Any resources allocated during init methods, can be cleaned up in this methods.
+			This would be called when we issue ServletContainer shutdown operation.
+			Once stopped, JVM will remove objects like Servlet Objects, ServletContext, ServletConfig objects from Heap memory.
+			
+			
+
+
+
+By extending Generic Servlet AC, we have to implement service() method. And by using this method, session management is not possible. 
+But by extending HttpServlet AC, we need to implement any class but recommended to implement doGet() and doPost() methods. Also this way has session management capability.
+
+
+
