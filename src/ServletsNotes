@@ -228,3 +228,49 @@ But by extending HttpServlet AC, we need to implement any class but recommended 
 
 
 
+========================================================================================================================================================================================================================================================
+========================================================================================================================================================================================================================================================
+
+HTTP SERVLETS
+========================================================================================================================================================================================================================================================
+========================================================================================================================================================================================================================================================
+
+If registration form is span across three forms, then three servlets are to be maintained. Because for three forms we cannot implement using Generic Servlet. 
+Because using extending GenericServlet, it cannot have session management, which is not able to store multiple form data.
+
+
+             
+form1:
+FName, LName, MName
+
+form2:
+Qualification, Percentage
+
+form3:
+Contact, Street, State
+
+
+When we are using HttpServlet,
+
+form1 data (FName, LName, MName) 		-----+---> stored to Session object
+                                             |
+form2 data (Qualification, Percentage) 	-----+
+                                             | 
+form3 data (Contact, Street, State) 	-----+
+
+For each browser from start till close, it will maintain unique session ID.
+
+========================================================================================================================================================================================================================================================
+========================================================================================================================================================================================================================================================
+
+How and where seesions are maintained and how is solves above generic servlet problem?
+========================================================================================================================================================================================================================================================
+========================================================================================================================================================================================================================================================
+
+Sessions are stored in server and HttpServlet has this capability of maintaining sessions. Per browser we have a session ID generated. We can have different session object settings. 
+SessionObjects can be cleared on close or browser or store for sometime. But data submitted multiple forms in a browser can be identified related to one particular servlet using sessions.
+
+ServletContext object = 1 / Application
+ServletConfig object = 1 / Servlet
+HttpSession object = 1 / Browser
+

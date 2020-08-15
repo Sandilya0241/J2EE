@@ -5,10 +5,12 @@
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
+    <welcome-file>AadharHome.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <!-- servlet -->
   
 	<servlet>
   		<servlet-name>FirstServlet</servlet-name>
@@ -26,6 +28,58 @@
   		<servlet-class>com.j2eelearnings.learnservlets.GenericServletExample</servlet-class>
   	</servlet>
 	
+	<servlet>
+		<description></description>
+		<display-name>StudentRegistrationServlet</display-name>
+  		<servlet-name>StudentRegistrationServlet</servlet-name>
+  		<servlet-class>com.controller.StudentRegistrationServlet</servlet-class>
+  		<init-param>
+  			<description></description>
+  			<param-name>username</param-name>
+  			<param-value>employees_admin</param-value>
+  		</init-param>
+  		<init-param>
+  			<description></description>
+  			<param-name>password</param-name>
+  			<param-value>employees_admin</param-value>
+  		</init-param>
+  	</servlet>
+  	
+  	<servlet>
+		<description></description>
+		<display-name>CourseRegistrationServlet</display-name>
+  		<servlet-name>CourseRegistrationServlet</servlet-name>
+  		<servlet-class>com.controller.CourseRegistrationServlet</servlet-class>
+  		<init-param>
+  			<description></description>
+  			<param-name>username</param-name>
+  			<param-value>emps</param-value>
+  		</init-param>
+  		<init-param>
+  			<description></description>
+  			<param-name>password</param-name>
+  			<param-value>emps</param-value>
+  		</init-param>
+  	</servlet>
+	
+	<servlet>
+		<description></description>
+		<display-name>AadharServ</display-name>
+  		<servlet-name>AadharServ</servlet-name>
+  		<servlet-class>com.controller.AadharServlet</servlet-class>
+  		<init-param>
+  			<description></description>
+  			<param-name>username</param-name>
+  			<param-value>employees_admin</param-value>
+  		</init-param>
+  		<init-param>
+  			<description></description>
+  			<param-name>password</param-name>
+  			<param-value>employees_admin</param-value>
+  		</init-param>
+  	</servlet>
+
+	<!-- servlet mapping -->
 	
 	<servlet-mapping>
 		<servlet-name>FirstServlet</servlet-name>
@@ -36,10 +90,38 @@
 		<servlet-name>SLC</servlet-name>
   		<url-pattern>/HelpText</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet-mapping>
 		<servlet-name>GenericServletName</servlet-name>
   		<url-pattern>/GenericServletExample</url-pattern>
 	</servlet-mapping>
 	
+	
+	<servlet-mapping>
+		<servlet-name>StudentRegistrationServlet</servlet-name>
+  		<url-pattern>/StudentRegistrationServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet-mapping>
+		<servlet-name>CourseRegistrationServlet</servlet-name>
+  		<url-pattern>/CourseRegistrationServlet</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet-mapping>
+		<servlet-name>AadharServ</servlet-name>
+  		<url-pattern>/AadharServ</url-pattern>
+	</servlet-mapping>
+  	
+  	<!-- Context Params -->
+  	
+	<context-param>
+		<param-name>driver</param-name>
+		<param-value>oracle.jdbc.OracleDriver</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>url</param-name>
+		<param-value>jdbc:oracle:thin:@localhost:1521:orclgdb</param-value>
+	</context-param>
+
 </web-app>
