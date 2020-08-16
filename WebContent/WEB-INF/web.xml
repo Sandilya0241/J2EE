@@ -110,8 +110,19 @@
   		<servlet-class>com.controller.ColorAppndrServlet</servlet-class>
   	</servlet>
 	
+	<servlet>
+		<servlet-name>RegServ</servlet-name>
+  		<servlet-class>com.controller.RegServlet</servlet-class>
+  	</servlet>
+	
 	<!-- servlet mapping -->
 	
+	
+	<servlet-mapping>
+		<servlet-name>RegServ</servlet-name>
+  		<url-pattern>/RegServ</url-pattern>
+  	</servlet-mapping>
+  	
 	<servlet-mapping>
 		<servlet-name>ColorAppndrServ</servlet-name>
   		<url-pattern>/ColorAppndrServ</url-pattern>
