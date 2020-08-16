@@ -78,9 +78,43 @@
   			<param-value>employees_admin</param-value>
   		</init-param>
   	</servlet>
+  	
+  	
+  	
+  	<servlet>
+		<servlet-name>ValidateServ</servlet-name>
+  		<servlet-class>com.controller.ValServlet</servlet-class>
+  	</servlet>
+  	
+  	<servlet>
+		<servlet-name>RegisterServ</servlet-name>
+  		<servlet-class>com.controller.RegisterServlet</servlet-class>
+  		<init-param>
+  			<description></description>
+  			<param-name>username</param-name>
+  			<param-value>employees_admin</param-value>
+  		</init-param>
+  		<init-param>
+  			<description></description>
+  			<param-name>password</param-name>
+  			<param-value>employees_admin</param-value>
+  		</init-param>
+  	</servlet>
 
 	<!-- servlet mapping -->
 	
+	
+	<servlet-mapping>
+		<servlet-name>ValidateServ</servlet-name>
+  		<url-pattern>/validate</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet-mapping>
+		<servlet-name>RegisterServ</servlet-name>
+  		<url-pattern>/register</url-pattern>
+  	</servlet-mapping>
+  	
+  	
 	<servlet-mapping>
 		<servlet-name>FirstServlet</servlet-name>
   		<url-pattern>/Hello</url-pattern>

@@ -274,3 +274,32 @@ ServletContext object = 1 / Application
 ServletConfig object = 1 / Servlet
 HttpSession object = 1 / Browser
 
+
+
+========================================================================================================================================================================================================================================================
+========================================================================================================================================================================================================================================================
+
+Servlet-Servlet communication
+========================================================================================================================================================================================================================================================
+========================================================================================================================================================================================================================================================
+Servlet classes to Servlet classes communication cannot be done normally by creating an object of class. 
+But in case of Servlets, we cannot create objects directly of class we want to interact with.
+Object creation capability is available to Servlet Container. So, Servlet created object should be used.
+
+Servlet-Servlet communication can happen in three ways:
+1.) By using getServlet("<Servlet Name>");
+2.) By using RequestDispatcher;
+3.) By Using SendRequest();
+
+1.) By using getServlet("<Servlet Name>"): (not recommended)
+
+MyServlet ms = config.getServletContext().getServlet("MyServlet");
+ms.doGet();
+
+2.) By using RequestDispatcher;
+
+RequestDispatcher rd = req.getRequestDispatcher("MyServlet");
+rd.forward(req, resp); ==> will forward the call to next Servlet (MyServlet as per example)
+rd.include(req, resp); ==> Will forward and get data after above call from called Servlet. Both current Servlet and Called Servlet response can be sent to screen for display.
+
+
