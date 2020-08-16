@@ -14,9 +14,10 @@ public class ColorAppndrServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		PrintWriter out = resp.getWriter();
 		// by Pattern
-		//RequestDispatcher rd = req.getRequestDispatcher("/GreetHelloServ");
-		RequestDispatcher rd = getServletContext().getNamedDispatcher("GreetHelloServlet");
-		out.println("<body style='background-color=yellow;'>");
+//		RequestDispatcher rd = req.getRequestDispatcher("/GreetHelloServ");
+		RequestDispatcher rd = getServletContext().getNamedDispatcher("GreetHelloServ");
+
+		out.println("<body style='background-color:red;'>");
 		System.out.println("Calling GreetHelloServlet"); 
 		rd.include(req, resp);
 		out.println("</body>");	

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+
 public class GreetHelloServlet  extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("GreetHelloServlet Called"); 
@@ -17,3 +18,4 @@ public class GreetHelloServlet  extends HttpServlet{
 		out.println("Hello, Mr. " + name);
 	}
 }
+
