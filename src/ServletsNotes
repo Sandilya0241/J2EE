@@ -311,3 +311,66 @@ AJAX-Servlet
 ========================================================================================================================================================================================================================================================
 
 AJAX calls can be used when form is fetching data which in large in size, then without loading data again and again, we can update controls on page.
+
+
+
+
+========================================================================================================================================================================================================================================================
+========================================================================================================================================================================================================================================================
+
+Filters
+========================================================================================================================================================================================================================================================
+========================================================================================================================================================================================================================================================
+
+Filters are used to filter data being passed to Servlet. They can be used in two ways:
+1.) To filter/ validate data sent to View layer to Controller layer.
+2.) To render output data to be sent to View layer either from Filters itself (in case of errors) or Controller layer (information messages).
+
+Filters are having three methods:
+	1.)	init()
+	2.)	doFilter(request, response, filterChain)
+	3.) destroy()
+	
+
+
+public void doFilter(request, response, filterchain){
+	//Code executed before Servlet call
+	
+	fc.doFilter(request, response);
+	
+	//Code executed after Servlet call
+}
+
+Above code will not receive response back when we user RequestDispatcher.forward() (Servlet-Servlet call). But in case of RequestDispatcher.include(), we would receive response back to filter.
+
+Filter method will create object during starting application (default onload startup).
+
+========================================================================================================================================================================================================================================================
+========================================================================================================================================================================================================================================================
+
+Listeners
+========================================================================================================================================================================================================================================================
+========================================================================================================================================================================================================================================================
+
+Listeners are services startup before ServletContainer/ Request/ Sessions. Listeners are event handlers that get started first for sessions/ ServletContainer/ Requests.
+There are three types of Listeners:
+	1.)	ServletContextListner
+			==>	This listener will create an object when we start container.
+			==>	This can be used when some settings are to be applied at application level before application start, we can implement above interface.
+			==>	It has two methods:
+				==>	contextInitialized() ==> On Context Startup ==> When we start on Container
+				==>	contextDestroyed() ==> On Context Stop ==> When we stop on Container
+	2.)	ServletSessionListener
+			==>	Upon session creation this object will be created for a browser and user.
+			==> If we have to set particular config settings for user upon session creation, we can use init() method.
+			==> On inValidate() method, this object destroys.
+			==> How many ever requests user fires, there will be single session object created for session duration time/ till closing the browser.
+			==> It has two methods:
+				==>	sessionCreated() ==> On session creation
+				==>	sessionDestroyed() ==> On calling session's inValidate() method
+	3.) RequestListener
+			==> For each request that we make to server, an object is created. It could be data request, posting some data to server or simple application access.
+			==>	Once user requests data and after receiving response, RequestListener object will be deleted.
+			==> It has two methods:
+				requestInitialized()  
+				requestDestroyed()  

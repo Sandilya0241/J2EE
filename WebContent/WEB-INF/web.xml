@@ -2,6 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>JavaWebApplications</display-name>
   <welcome-file-list>
+  	<welcome-file>Welcome.html</welcome-file>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
@@ -115,9 +116,45 @@
   		<servlet-class>com.controller.RegServlet</servlet-class>
   	</servlet>
 	
+	
+	
+	<servlet>
+		<servlet-name>CourseValidationServlet</servlet-name>
+  		<servlet-class>com.controller.CourseValidationServlet</servlet-class>
+  	</servlet>
+	
+	
+	<servlet>
+		<servlet-name>WelcomeServlet</servlet-name>
+		<servlet-class>com.controller.Test2Servlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<servlet-class>com.controller.LogoutServlet</servlet-class>
+	</servlet>
+	
+	
+	
 	<!-- servlet mapping -->
 	
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
 	
+	
+	<servlet-mapping>
+		<servlet-name>WelcomeServlet</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	
+	
+	<servlet-mapping>
+		<servlet-name>CourseValidationServlet</servlet-name>
+  		<url-pattern>/CourseValidationServlet</url-pattern>
+  	</servlet-mapping>
+  	
 	<servlet-mapping>
 		<servlet-name>RegServ</servlet-name>
   		<url-pattern>/RegServ</url-pattern>
@@ -188,4 +225,36 @@
 		<param-value>jdbc:oracle:thin:@localhost:1521:orclgdb</param-value>
 	</context-param>
 
+
+	<!-- Filters  -->
+	
+	<filter>
+		<filter-name>CourseValidationFilter</filter-name>
+		<filter-class>com.controller.CourseValidationFilter</filter-class>
+		<init-param>
+			<param-name>filterVal</param-name>
+			<param-value>Demo Filter</param-value>
+		</init-param>
+  	</filter>
+	
+	<!-- Filter mapping -->
+	
+  	<filter-mapping>
+		<filter-name>CourseValidationFilter</filter-name>
+  		<url-pattern>/CourseValidationServlet</url-pattern>
+  	</filter-mapping>
+
+
+	<!-- Listeners -->
+	<listener>
+		<listener-class>com.controller.Test1</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>com.controller.Test2</listener-class>
+	</listener>
+	
+	<listener>
+		<listener-class>com.controller.Test3</listener-class>
+	</listener>
 </web-app>
